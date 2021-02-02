@@ -1,5 +1,5 @@
 # Fabulousity
-A Minecraft shader which works purely in Vanilla as well as with Fabric Sodium and Optifine.
+A Minecraft shader for Fabulous Graphics which works purely in Vanilla as well as with Fabric Sodium and Optifine.
 
 Minecraft Java 1.16+ Required
 
