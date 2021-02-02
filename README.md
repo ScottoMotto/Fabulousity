@@ -5,7 +5,7 @@ Minecraft Java 1.16+ Required
 
 Instructions for Use:
 1. Put Pack in your Minecraft resourcepacks folder
-2. Select Fabulous Graphics in Video Settings or if your machine doesn't support it or using with other shaders install Optifine and select Shaders from Video Settings then in the Antialiasing button on the right select FXAA - 4x.
+2. Select Fabulous Graphics in Video Settings or if your machine doesn't support it or using with other shaders install Optifine and select Shaders from Video Settings then in the Antialiasing button on the right select FXAA 4x.
 3. You can mix with other non-shader resource packs.
 4. profit
 
