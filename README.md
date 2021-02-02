@@ -10,8 +10,8 @@ Instructions for Use:
 4. profit
 
 Pack based on a project from TheBaum64 - Bloom Lighting!
-https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/resource-packs/2277994-bloom-lighting-add-better-lighting-into-minecraft
-Released with a Creative Common License
+https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/resource-packs/2277994-bloom-lighting-add-better-lighting-into-minecraft with code from WillPack.
+Released under a Creative Common License
 
 Additional code for blur from Felix Jones:
 https://gist.github.com/felixjones/5811b9bcab5f17b809f470a77ed7daec
