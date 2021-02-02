@@ -1,0 +1,13 @@
+{
+  "pack": {
+    "pack_format": 6,
+    "description": "\u00A7eFabulousity Shader \n\u00A7bby \u00A7aScottoMotto"
+  },
+  "language": {
+      "en_OC": {
+      "name": "\u00A7eEnglish",
+      "region": "\u00A7bColor\u00A7e",
+      "bidirectional": false
+     }
+  }
+}

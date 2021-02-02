@@ -1,0 +1,226 @@
+{
+    "targets": [
+        "water",
+        "translucent",
+        "itemEntity",
+        "particles",
+        "clouds",
+        "weather",
+        "final",
+		"swap",
+        "swap2",
+        "swap3",
+        "swap4",
+        "swap5",
+        "swap6",
+        "swap7",
+		"swap8",
+        "pswap",
+        "pprevious"
+    ],
+    "passes": [
+    {
+      "name": "ssao",
+      "intarget": "minecraft:main",
+      "outtarget": "final",
+      "auxtargets": [
+		  {
+			"name": "DiffuseDepthSampler",
+			"id": "minecraft:main:depth"
+		  }
+	  ]
+    },
+    {
+      "name": "blur_translucent",
+      "intarget": "final",
+      "outtarget": "minecraft:main",
+      "auxtargets": [
+		  {
+			"name": "DiffuseDepthSampler",
+			"id": "final:depth"
+		  },
+		  {
+			"name": "TranslucentDepthSampler",
+			"id": "translucent:depth"
+		  },
+		  {
+			"name": "CloudsDepthSampler",
+			"id": "clouds:depth"
+		  }
+	  ]
+    },
+    {
+      "name": "transparency",
+      "intarget": "minecraft:main",
+      "outtarget": "final",
+      "auxtargets": [
+			{
+			  "name": "DiffuseDepthSampler",
+			  "id": "minecraft:main:depth"
+			},
+			{
+			  "name": "TranslucentSampler",
+			  "id": "translucent"
+			},
+			{
+			  "name": "TranslucentDepthSampler",
+			  "id": "translucent:depth"
+			},
+			{
+			  "name": "ItemEntitySampler",
+			  "id": "itemEntity"
+			},
+			{
+			  "name": "ItemEntityDepthSampler",
+			  "id": "itemEntity:depth"
+			},
+			{
+			  "name": "ParticlesSampler",
+			  "id": "particles"
+			},
+			{
+			  "name": "ParticlesDepthSampler",
+			  "id": "particles:depth"
+			},
+			{
+			  "name": "CloudsSampler",
+			  "id": "clouds"
+			},
+			{
+			  "name": "CloudsDepthSampler",
+			  "id": "clouds:depth"
+			},
+			{
+			  "name": "WeatherSampler",
+			  "id": "weather"
+			},
+			{
+			  "name": "WeatherDepthSampler",
+			  "id": "weather:depth"
+			}
+		  ]
+		},
+		{
+            "name": "phosphor",
+            "intarget": "final",
+            "outtarget": "pswap",
+            "auxtargets": [
+                {
+                    "name": "PrevSampler",
+                    "id": "pprevious"
+                }
+            ]
+        },
+        {
+            "name": "blit",
+            "intarget": "pswap",
+            "outtarget": "pprevious"
+        },
+        {
+            "name": "willpackcolor",
+            "intarget": "final",
+            "outtarget": "swap",
+            "auxtargets": [
+                {
+                    "name": "MBSampler",
+                    "id": "pswap"
+                }
+            ]
+        },
+        {
+            "name": "willpackdarken",
+            "intarget": "final",
+            "outtarget": "swap3",
+            "auxtargets": [
+                {
+                    "name": "MBSampler",
+                    "id": "pswap"
+                }
+            ]
+        },
+        {
+            "name": "blur",
+            "intarget": "swap3",
+            "outtarget": "swap4",
+            "uniforms": [
+                {
+                    "name": "BlurDir",
+                    "values": [ 5.0, 0.0 ]
+                },
+                {
+                    "name": "Radius",
+                    "values": [ 2.0 ]
+                }
+            ]
+        },
+        {
+            "name": "blur",
+            "intarget": "swap4",
+            "outtarget": "swap5",
+            "uniforms": [
+                {
+                    "name": "BlurDir",
+                    "values": [ 0.0, 5.0 ]
+                },
+                {
+                    "name": "Radius",
+                    "values": [ 2.0 ]
+                }
+            ]
+        },
+        {
+            "name": "blur",
+            "intarget": "swap5",
+            "outtarget": "swap6",
+            "uniforms": [
+                {
+                    "name": "BlurDir",
+                    "values": [ 1.0, 1.0 ]
+                },
+                {
+                    "name": "Radius",
+                    "values": [ 2.0 ]
+                }
+            ]
+        },
+        {
+            "name": "blur",
+            "intarget": "swap6",
+            "outtarget": "swap7",
+            "uniforms": [
+                {
+                    "name": "BlurDir",
+                    "values": [ -1.0, 1.0 ]
+                },
+                {
+                    "name": "Radius",
+                    "values": [ 2.0 ]
+                }
+            ]
+        },
+        {
+            "name": "willpackbloom",
+            "intarget": "swap",
+            "outtarget": "swap2",
+            "auxtargets": [
+                {
+                    "name": "DarkBlurSampler",
+                    "id": "swap7"
+                }
+            ]
+        },
+		{
+            "name": "color_convolve",
+            "intarget": "swap2",
+            "outtarget": "swap8",
+            "uniforms": [
+                { "name": "Saturation", "values": [ 1.1 ] }
+            ]
+        },
+        {
+            "name": "fxaa",
+            "intarget": "swap8",
+            "outtarget": "minecraft:main"
+        }
+    ]
+}

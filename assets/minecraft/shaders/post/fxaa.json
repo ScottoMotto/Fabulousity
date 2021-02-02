@@ -1,0 +1,42 @@
+{
+    "targets": [
+        "swap",
+        "pswap",
+        "pprevious",
+        "blurriness"
+    ],
+    "passes": [
+        {
+            "name": "phosphor",
+            "intarget": "minecraft:main",
+            "outtarget": "pswap",
+            "auxtargets": [
+                {
+                    "name": "PrevSampler",
+                    "id": "pprevious"
+                }
+            ]
+        },
+        {
+            "name": "blit",
+            "intarget": "pswap",
+            "outtarget": "pprevious"
+        },
+        {
+            "name": "reinhard",
+            "intarget": "minecraft:main",
+            "outtarget": "swap",
+            "auxtargets": [
+                {
+                    "name": "MBSampler",
+                    "id": "pswap"
+                }
+            ]
+        },
+        {
+            "name": "fxaa",
+            "intarget": "swap",
+            "outtarget": "minecraft:main"
+        }
+    ]
+}
